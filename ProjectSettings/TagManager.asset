@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Neutron
+  - Fuel Rod
+  - Control Rod
+  - Moderator Rod
+  - Moderator Water
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Moderator Water
+  - Fuel Rod
+  - Control Rod
+  - Moderator Rod
+  - Neutron
+  - Thermal Neutron
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Moderator Water
+    uniqueID: 1577887699
+    locked: 0
+  - name: Mediator Rod
+    uniqueID: 229418757
+    locked: 0
+  - name: Fuel Rod
+    uniqueID: 1637351153
+    locked: 0
+  - name: Neutron
+    uniqueID: 3006694373
+    locked: 0
+  - name: Menu Canvas
+    uniqueID: 3082781363
+    locked: 0

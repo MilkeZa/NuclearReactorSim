@@ -1,0 +1,34 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/FuelAssemblyGeneratorStyle.uss?fileID=7433441132597879392&amp;guid=6dfa201be7eadff429e652f3cef7707d&amp;type=3#FuelAssemblyGeneratorStyle" />
+    <ui:VisualElement name="Setup_Container" style="flex-grow: 1;">
+        <ui:Label tabindex="-1" text="Setup" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Setup_Header" style="font-size: 20px; color: rgb(255, 255, 255); -unity-text-outline-width: 0.5px; -unity-text-outline-color: rgba(0, 0, 0, 0); -unity-text-align: middle-left;" />
+        <ui:VisualElement name="Setup_GameobjectAssignments" style="flex-grow: 1;">
+            <ui:Label tabindex="-1" text="Gameobject Assignments" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-text-align: middle-left; color: rgb(255, 255, 255); font-size: 12px;" />
+            <uie:PropertyField binding-path="fuelRodPrefab" />
+            <uie:PropertyField binding-path="fuelAssembly" />
+            <uie:PropertyField binding-path="waterPrefab" />
+            <uie:PropertyField binding-path="waterTankParent" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Setup_FuelSettings" style="flex-grow: 1;">
+            <ui:Label tabindex="-1" text="Fuel Settings" parse-escape-sequences="true" display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); -unity-text-outline-width: 0.5px; -unity-text-align: middle-left;" />
+            <uie:PropertyField binding-path="fuelRows" />
+            <uie:PropertyField binding-path="fuelColumns" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Setup_PositionalSettings" style="flex-grow: 1;">
+            <ui:Label tabindex="-1" text="Positional Settings" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-text-outline-width: 0.5px; color: rgb(255, 255, 255); -unity-text-align: middle-left; font-size: 12px;" />
+            <uie:PropertyField binding-path="minimumPosition" />
+            <uie:PropertyField binding-path="maximumPosition" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Setup_Buttons" style="flex-grow: 1; margin-top: 5px; margin-right: 5px; margin-bottom: 0; margin-left: 5px;">
+            <ui:Button text="Save Fuel Settings" parse-escape-sequences="true" display-tooltip-when-elided="true" name="SaveFuelAssemblySettingsButton" class="button" />
+            <ui:Button text="Reset Fuel Settings" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ResetFuelAssemblySettingsButton" class="button" style="-unity-text-outline-width: 0; -unity-text-outline-color: rgba(255, 255, 255, 0); white-space: normal;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="Generate_Container" style="flex-grow: 1; margin-top: 5px; margin-right: 5px; padding-left: 0; margin-left: 5px; margin-bottom: 5px;">
+        <ui:Label tabindex="-1" text="Generate" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Generate_Header" style="font-size: 20px; -unity-text-outline-width: 0.5px; color: rgb(255, 255, 255);" />
+        <ui:VisualElement name="Generate_Buttons" style="flex-grow: 1;">
+            <ui:Button text="Generate Fuel Assembly" parse-escape-sequences="true" display-tooltip-when-elided="true" name="GenerateFuelAssemblyButton" class="button" style="-unity-text-outline-width: 0; -unity-text-outline-color: rgba(255, 255, 255, 0); white-space: normal;" />
+            <ui:Button text="Clear Fuel Assembly" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ClearFuelAssemblyButton" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
