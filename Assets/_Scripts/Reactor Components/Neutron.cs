@@ -8,6 +8,8 @@ using UnityEngine;
 /// </summary>
 public class Neutron : MonoBehaviour
 {
+    #region Variables
+
     [Header("State based Travel Speed")]
     [SerializeField]
     [Tooltip("Speed of the object when in the slow state")]
@@ -45,6 +47,8 @@ public class Neutron : MonoBehaviour
     private float waterSlowSpeed = 0.1f;        // How quickly water slows neutrons down
 
     private CircleCollider2D circleCollider;
+
+    #endregion
 
     #region UnityMethods
 

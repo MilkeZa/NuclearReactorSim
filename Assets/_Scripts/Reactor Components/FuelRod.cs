@@ -8,6 +8,8 @@ using UnityEngine;
 /// </summary>
 public class FuelRod : MonoBehaviour
 {
+    #region Variables
+
     private SpriteRenderer spriteRenderer;  // Used to change the color of the fuel rod sprite
     private AudioSource audioSource;        // Audio source of sound effects
     private System.Random random;           // Used to create randomness when checking if probability events occur
@@ -57,6 +59,8 @@ public class FuelRod : MonoBehaviour
     private DateTime timerStart;                    // Timer start time
     private DateTime timerEnd;                      // Timer expiration time
     private int randomlyMakeFissileSeconds = 1;     // Non-fissile rods have a random chance of becoming fissile every n seconds
+
+    #endregion
 
     #region UnityMethods
 
@@ -261,6 +265,7 @@ public class FuelRod : MonoBehaviour
     #endregion
 }
 
+[System.Serializable]
 public enum FuelRodState
 {
     Fissile,

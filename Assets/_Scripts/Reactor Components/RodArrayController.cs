@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class RodArrayController : MonoBehaviour
 {
+    #region Variables
+
     [SerializeField]
     private GameObject rodContainer;
 
@@ -19,6 +21,8 @@ public class RodArrayController : MonoBehaviour
 
     public bool controlRodMovementDirection { get; private set; }   // Are control rods rising (true) or lowering (false)?
     public bool moderatorRodMovementDirection { get; private set; } // Are control rods rising (true) or lowering (false)?
+
+    #endregion
 
     #region UnityMethods
 

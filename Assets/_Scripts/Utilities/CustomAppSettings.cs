@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,6 +5,8 @@ using UnityEngine.Audio;
 
 public class CustomAppSettings : MonoBehaviour
 {
+    #region Variables
+
     [Header("Gameobjects")]
     [SerializeField]
     [Tooltip("Toggle that enables/disables fullscreen mode")]
@@ -39,6 +40,8 @@ public class CustomAppSettings : MonoBehaviour
 
     private Resolution[] availableResolutions;                          // Resolution options available based on the screen
 
+    #endregion
+
     #region UnityMethods
 
     private void Awake()
@@ -49,7 +52,7 @@ public class CustomAppSettings : MonoBehaviour
 
     #endregion
 
-    #region GraphicsSettings
+    #region GraphicsMethods
 
     /// <summary>
     /// Initializes the graphics settings in one compact method.
@@ -204,7 +207,7 @@ public class CustomAppSettings : MonoBehaviour
 
     #endregion
 
-    #region AudioSettings
+    #region AudioMethods
 
     /// <summary>
     /// Sets the master volume of the application.

@@ -8,8 +8,14 @@ using System;
 /// </summary>
 public static class Randomizer
 {
+    #region Variables
+
     // Static random object to be used by the whole project using todays date in ticks as a seed
     private static System.Random Randy = new System.Random((int)DateTime.Now.Ticks);
+
+    #endregion
+
+    #region CustomMethods
 
     public static void RandomizeList<T>(List<T> _list)
     {
@@ -72,4 +78,6 @@ public static class Randomizer
         // Clamp the value and return it
         return ClampFloat(_min, _max, _unclampedValue);
     }
+
+    #endregion
 }

@@ -8,6 +8,8 @@ using UnityEngine;
 /// </summary>
 public class FuelAssembly : MonoBehaviour
 {
+    #region Variables
+
     public int rowCount { get; private set; } = 0;                  // Number of rows of fuel rods in the assembly
     public int columnCount { get; private set; } = 0;               // Number of columns of fuel rods in the assembly
     public int fuelRodCount { get; private set; } = 0;              // Number of fuel rods in the assembly
@@ -17,6 +19,10 @@ public class FuelAssembly : MonoBehaviour
 
     public Action<int> OnFuelRodsInserted;  // Called when the fuel rods are inserted
     public Action OnFuelRodsDestroyed;      // Called when the fuel rods are destroyed
+
+    #endregion
+
+    #region CustomMethods
 
     public void InsertFuelRods(FuelRod[,] _fuelRods)
     {
@@ -112,4 +118,6 @@ public class FuelAssembly : MonoBehaviour
         // Return the fuel rod array
         return _fuelRods;
     }
+
+    #endregion
 }

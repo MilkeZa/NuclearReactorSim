@@ -9,6 +9,8 @@ using UnityEngine;
 /// </summary>
 public class ReactorMonitor : MonoBehaviour
 {
+    #region Variables
+
     [Header("UI Components")]
     [SerializeField]
     [Tooltip("Text element displaying the target output in neutrons")]
@@ -124,6 +126,8 @@ public class ReactorMonitor : MonoBehaviour
     public float percentFuelNonFissile { get; private set; }        // Percent out of 100 of non-fissile fuel
     public float percentFuelXenonSaturated { get; private set; }    // Percent out of 100 of fuel saturated with xenon
     public float percentFuelReactive { get; private set; }          // Percent out of 100 of fuel capable of reacting with a neutron
+
+    #endregion
 
     #region UnityMethods
 

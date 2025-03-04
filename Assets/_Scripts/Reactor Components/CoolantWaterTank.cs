@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CoolantWaterTank : MonoBehaviour
 {
+    #region Variables
+
     public CoolantWater[] water;
 
     public bool enablePumps { get; private set; } = true;
@@ -12,6 +14,8 @@ public class CoolantWaterTank : MonoBehaviour
     public float averageTemperature { get; private set; }
     public float currentWaterLevel { get; private set; }
     public float maxWaterLevel { get; private set; }
+
+    #endregion
 
     #region MeasurementMethods
 

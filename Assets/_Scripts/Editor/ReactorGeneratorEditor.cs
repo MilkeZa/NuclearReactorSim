@@ -11,6 +11,8 @@ using UnityEngine.UIElements;
 [CustomEditor(typeof(ReactorGenerator))]
 public class ReactorGeneratorEditor : Editor
 {
+    #region Variables
+
     public VisualTreeAsset VisualTree;
 
     private ReactorGenerator reactorGenerator;
@@ -19,6 +21,10 @@ public class ReactorGeneratorEditor : Editor
     private Button resetSettingsButton;
     private Button generateAssemblyButton;
     private Button clearAssemblyButton;
+
+    #endregion
+
+    #region UnityMethods
 
     private void OnEnable()
     {
@@ -49,6 +55,8 @@ public class ReactorGeneratorEditor : Editor
         // Return the root instance
         return root;
     }
+
+    #endregion
 
     #region Button Events
 

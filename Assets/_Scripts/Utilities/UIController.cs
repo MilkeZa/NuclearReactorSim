@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
+    #region Variables
+
     [SerializeField]
     [Tooltip("Container object holding reactor UI components")]
     private GameObject reactorUiParent;
@@ -13,6 +15,8 @@ public class UIController : MonoBehaviour
     private GameObject settingsMenuParent;
 
     public static bool showingSettingsMenu { get; private set; }
+
+    #endregion
 
     #region UnityMethods
 

@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CoolantWater : MonoBehaviour
 {
+    #region Variables
+
     private SpriteRenderer waterSprite;
     private BoxCollider2D waterCollider;
 
@@ -66,6 +66,8 @@ public class CoolantWater : MonoBehaviour
      *      1f - MapRange(currentTemperature, coolTemperature, evaporationTemperature, 0f, 1f)
      */
     public float capacityRemaining { get; private set; }
+
+    #endregion
 
     #region UnityMethods
 

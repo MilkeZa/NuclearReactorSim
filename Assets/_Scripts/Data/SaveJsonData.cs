@@ -7,7 +7,13 @@ using UnityEngine;
 /// </summary>
 public static class SaveJsonData
 {
+    #region Variables
+
     private static string fuelAssemblyDataFilePath = Application.persistentDataPath + "/FuelAssemblySaveData.json";
+
+    #endregion
+
+    #region CustomMethods
 
     public static void WriteFuelAssemblySaveData(int _fuelRows, int _fuelColumns, Vector2 _minimumPosition, Vector2 _maximumPosition)
     {
@@ -40,4 +46,6 @@ public static class SaveJsonData
         // Write the data to the file path
         System.IO.File.WriteAllText(_filePath, _jsonData);
     }
+
+    #endregion
 }

@@ -9,10 +9,16 @@ using System;
 [System.Serializable]
 public class FuelAssemblySaveData
 {
+    #region Variables
+
     public int fuelRows;
     public int fuelColumns;
     public Vector2 minimumPosition;
     public Vector2 maximumPosition;
+
+    #endregion
+
+    #region CustomMethods
 
     public FuelAssemblySaveData(int _fuelRows, int _fuelColumns, Vector2 _minimumPosition, Vector2 _maximumPosition)
     {
@@ -26,4 +32,6 @@ public class FuelAssemblySaveData
     {
         return $"Fuel Assembly Save Data\nFuel Rows: {fuelRows}\nFuel Columns: {fuelColumns}\nMinimum Position: {minimumPosition}\nMaximum Position: {maximumPosition}";
     }
+
+    #endregion
 }

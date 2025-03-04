@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class ReactorGenerator : MonoBehaviour
 {
+    #region Variables
+
     // These are gameobjects that need to be assigned before running
     [SerializeField]
     [Tooltip("Prefab to be used as the fuel rod object")]
@@ -42,6 +44,10 @@ public class ReactorGenerator : MonoBehaviour
     [Tooltip("Maximum position on screen a fuel rod will be placed")]
     private Vector2 maximumPosition;
 
+    #endregion
+
+    #region UnityMethods
+
     private void Awake()
     {
         // Load the saved fuel assembly settings
@@ -60,6 +66,10 @@ public class ReactorGenerator : MonoBehaviour
         GenerateFuelAssembly();
         GenerateCoolantWater();
     }
+
+    #endregion
+
+    #region FuelMethods
 
     public void SaveFuelAssemblySettings()
     {
@@ -182,6 +192,10 @@ public class ReactorGenerator : MonoBehaviour
         ClearCoolantWater();
     }
 
+    #endregion
+
+    #region CoolantWaterMethods
+
     private void GenerateCoolantWater()
     {
         CoolantWater[] _waterTank = new CoolantWater[fuelAssembly.rowCount * fuelAssembly.columnCount];
@@ -224,4 +238,6 @@ public class ReactorGenerator : MonoBehaviour
         // Clear the water tanks water
         waterTank.ClearWater();
     }
+
+    #endregion
 }

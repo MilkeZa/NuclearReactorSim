@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RodMovementController : MonoBehaviour
 {
+    #region Variables
+
     [SerializeField]
     [Tooltip("Speed at which control rods move")]
     private float speed = 0.5f;                   // A value of 4 is used to speed up testing, 0.25 or 0.5 is likely a more realistic speed
@@ -17,6 +19,8 @@ public class RodMovementController : MonoBehaviour
 
     private bool moveControlRod = false;        // No movement when false, movement when true
     private int raiseDirection = -1;            // Lower when -1, raise when 1
+
+    #endregion
 
     #region UnityMethods
 
