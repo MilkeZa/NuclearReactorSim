@@ -1,20 +1,17 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 public class RodArrayController : MonoBehaviour
 {
     #region Variables
 
-    [SerializeField]
-    private GameObject rodContainer;
+    [SerializeField] private GameObject rodContainer;
 
     private List<RodMovementController> controlRods = new List<RodMovementController>();
     private List<RodMovementController> moderatorRods = new List<RodMovementController>();
 
-    public bool enableControlRods = false;
-    public bool enableModeratorRods = false;
+    public bool enableControlRods = false;                          // Enable/disable control rod movement
+    public bool enableModeratorRods = false;                        // Enable/disable moderator rod movement
 
     public bool controlRodMovementState { get; private set; }       // Are control rods moving (true) or idle (false)?
     public bool moderatorRodMovementState { get; private set; }     // Are moderator rods moving (true) or idle (false)?
@@ -76,6 +73,9 @@ public class RodArrayController : MonoBehaviour
 
     #region RodMovementMethods
 
+    /// <summary>
+    /// Raise the control rods out of the reactor core.
+    /// </summary>
     public void RaiseControlRods()
     {
         // Verify that control rod movement is enabled
@@ -90,6 +90,9 @@ public class RodArrayController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Lower the control rods into the reactor core.
+    /// </summary>
     public void LowerControlRods()
     {
         // Verify that control rod movement is enabled
@@ -104,6 +107,9 @@ public class RodArrayController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Raise the moderator rods out of the reactor core.
+    /// </summary>
     public void RaiseModeratorRods()
     {
         // Verify that moderator rod movement is enabled
@@ -118,6 +124,9 @@ public class RodArrayController : MonoBehaviour
         moderatorRodMovementDirection = true;
     }
 
+    /// <summary>
+    /// Lower moderator rods into the reactor core.
+    /// </summary>
     public void LowerModeratorRods()
     {
         // Verify that moderator rod movement is enabled
@@ -132,6 +141,11 @@ public class RodArrayController : MonoBehaviour
         moderatorRodMovementDirection = false;
     }
 
+    /// <summary>
+    /// Begin the movement of a rod assembly.
+    /// </summary>
+    /// <param name="_rods">Rod assembly to move.</param>
+    /// <param name="_raise">Raise (true) or lower (false) the rod assembly.</param>
     private void BeginMoveRods(List<RodMovementController> _rods, bool _raise)
     {
         // Verify the array is not null or empty
@@ -145,6 +159,9 @@ public class RodArrayController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Stop the movement of control rods.
+    /// </summary>
     public void HaltControlRods()
     {
         // Verify that control rod movement is enabled
@@ -159,6 +176,9 @@ public class RodArrayController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Stop the movement of moderator rods.
+    /// </summary>
     public void HaltModeratorRods()
     {
         // Verify that moderator rod movement is enabled
@@ -173,6 +193,10 @@ public class RodArrayController : MonoBehaviour
         moderatorRodMovementDirection = false;
     }
 
+    /// <summary>
+    /// Stop the movement of a rod assembly.
+    /// </summary>
+    /// <param name="_rods">Rod assembly to halt.</param>
     public void HaltRods(List<RodMovementController> _rods)
     {
         // Verify the array is not null or empty

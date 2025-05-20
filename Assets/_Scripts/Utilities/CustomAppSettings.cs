@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using TMPro;
 
 public class CustomAppSettings : MonoBehaviour
 {
@@ -10,27 +10,27 @@ public class CustomAppSettings : MonoBehaviour
     [Header("Gameobjects")]
     [SerializeField]
     [Tooltip("Toggle that enables/disables fullscreen mode")]
-    private UnityEngine.UI.Toggle fullscreenToggle;
+    private UnityEngine.UI.Toggle fullscreenToggle;                     // Toggle used to enable/disable fullscreen
 
     [SerializeField]
     [Tooltip("Dropdown menu that allows user to select desired resolution")]
-    private TMP_Dropdown resolutionDropdown;
+    private TMP_Dropdown resolutionDropdown;                            // Dropdown used to alter resolution
 
     [SerializeField]
     [Tooltip("Dropdown menu that allows user to select desired framerate")]
-    private TMP_Dropdown framerateDropdown;
+    private TMP_Dropdown framerateDropdown;                             // Dropdown menu used to alter framerate
 
     [SerializeField]
     [Tooltip("Slider used to alter the volume of the application")]
-    private UnityEngine.UI.Slider masterVolumeSlider;
+    private UnityEngine.UI.Slider masterVolumeSlider;                   // Slider used to control master audio level
 
     [SerializeField]
     [Tooltip("Slider used to alter the volume of sound effects")]
-    private UnityEngine.UI.Slider sfxVolumeSlider;
+    private UnityEngine.UI.Slider sfxVolumeSlider;                      // Slider used to control level of sound effects
 
     [SerializeField]
     [Tooltip("Master audi mixer used in the scene")]
-    private AudioMixer masterAudioMixer;
+    private AudioMixer masterAudioMixer;                                // Master application audio mixer
 
     private int defaultFramerateIndex = 3;                              // Default framerate index
     private readonly int[] framerateOptions = { 12, 24, 40, 60, 144 };  // List of available framerates
@@ -134,6 +134,9 @@ public class CustomAppSettings : MonoBehaviour
         Screen.SetResolution(_resolution.width, _resolution.height, Screen.fullScreen);
     }
 
+    /// <summary>
+    /// Initialize the fullscreen variable and apply it.
+    /// </summary>
     private void InitializeFullscreen()
     {
         // Get the toggle buttons value then set the full screen

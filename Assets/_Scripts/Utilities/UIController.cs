@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIController : MonoBehaviour
@@ -8,13 +6,14 @@ public class UIController : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Container object holding reactor UI components")]
-    private GameObject reactorUiParent;
+    private GameObject reactorUiParent;     // Parent transform of reactor UI components
+
 
     [SerializeField]
     [Tooltip("Settings menu displayed when the user elects to alter app settings")]
-    private GameObject settingsMenuParent;
+    private GameObject settingsMenuParent;  // Parent transform of the settings menu
 
-    public static bool showingSettingsMenu { get; private set; }
+    public static bool showingSettingsMenu { get; private set; }    // True when the settings menu is displayed, false, when it is not.
 
     #endregion
 
@@ -34,6 +33,9 @@ public class UIController : MonoBehaviour
 
     #region StateOptions
 
+    /// <summary>
+    /// Toggle the state of the settings menu, making it visible or not.
+    /// </summary>
     private void ToggleSettingsMenuState()
     {
         // Toggle the state of the reactor ui parent object

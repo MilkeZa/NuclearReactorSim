@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -84,6 +83,10 @@ public class FuelRod : MonoBehaviour
 
     #region StateMethods
 
+    /// <summary>
+    /// Update the state of a fuel rod.
+    /// </summary>
+    /// <param name="_state">State with which the rod is to be updated to.</param>
     public void UpdateState(FuelRodState _state)
     {
         // Update the fuel rod data
@@ -135,6 +138,10 @@ public class FuelRod : MonoBehaviour
         OnFuelRodStateChanged?.Invoke(isFissile, isXenon, isReactive);
     }
 
+    /// <summary>
+    /// Randomly release a neutron due to radioactive decay (if possible).
+    /// </summary>
+    /// <returns>True if the random value is above the random release probability, otherwise, false.</returns>
     private bool RandomlyReleaseNeutron()
     {
         // Generate a random number between 0 and 1
@@ -144,6 +151,10 @@ public class FuelRod : MonoBehaviour
         return _val > 1f - randomReleaseProbability;
     }
 
+    /// <summary>
+    /// Randomly make this fuel rod fissile, to help with the demonstration. To my knowledge, this does not occur in nature.
+    /// </summary>
+    /// <returns>True if the rod is to be made fissile, otherwise, false.</returns>
     private bool RandomlyMakeFissile()
     {
         // Generate a random number between 0 and 1
@@ -157,6 +168,10 @@ public class FuelRod : MonoBehaviour
 
     #region ReactionMethods
 
+    /// <summary>
+    /// Handle a reaction with a neutron.
+    /// </summary>
+    /// <returns>True if the rod reacts with the neutron, otherwise, false.</returns>
     public bool NeutronReaction()
     {
         // Check if the fuel rod is in a reactive state
@@ -204,6 +219,10 @@ public class FuelRod : MonoBehaviour
         return true;
     }
 
+    /// <summary>
+    /// Release neutrons into the reactor core.
+    /// </summary>
+    /// <param name="_neutronCount">Number of neutrons to release.</param>
     private void ReleaseNeutrons(int _neutronCount)
     {
         // Instantiate neutron gameobjects
@@ -217,6 +236,9 @@ public class FuelRod : MonoBehaviour
 
     #region TimedMethods
 
+    /// <summary>
+    /// Start the timer controlling the random fissile event.
+    /// </summary>
     private void StartRandomlyMakeFissileTimer()
     {
         // Mark the start time of the timer
@@ -235,6 +257,10 @@ public class FuelRod : MonoBehaviour
         StartCoroutine(RandomlyMakeFissileTimer());
     }
 
+    /// <summary>
+    /// Control the timer handling the random fissile event.
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator RandomlyMakeFissileTimer()
     {
         // Mark the start time
@@ -265,6 +291,9 @@ public class FuelRod : MonoBehaviour
     #endregion
 }
 
+/// <summary>
+/// Enumerator used to set the state of a fuel rod.
+/// </summary>
 [System.Serializable]
 public enum FuelRodState
 {

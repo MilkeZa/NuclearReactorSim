@@ -1,14 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class controls the movement of a rod.
+/// </summary>
 public class RodMovementController : MonoBehaviour
 {
     #region Variables
 
     [SerializeField]
     [Tooltip("Speed at which control rods move")]
-    private float speed = 0.5f;                   // A value of 4 is used to speed up testing, 0.25 or 0.5 is likely a more realistic speed
+    private float speed = 0.5f;                 // A value of 4 is used to speed up testing, 0.25 or 0.5 is likely a more realistic speed
 
     [SerializeField]
     [Tooltip("Maximum distance control rods may be raised")]
@@ -106,6 +107,10 @@ public class RodMovementController : MonoBehaviour
 
     #region MovementMethods
 
+    /// <summary>
+    /// Begin moving the control rod.
+    /// </summary>
+    /// <param name="_raiseControlRod">Raise the control rod (true) or lower the control rod (false).</param>
     public void BeginControlRodMovement(bool _raiseControlRod)
     {
         // Set the move control rod flag high
@@ -115,6 +120,9 @@ public class RodMovementController : MonoBehaviour
         raiseDirection = _raiseControlRod ? 1 : -1;
     }
 
+    /// <summary>
+    /// Stop moving the control rod.
+    /// </summary>
     public void StopControlRodMovement()
     {
         // Set the move control rod flag low

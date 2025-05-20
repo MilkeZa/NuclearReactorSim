@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,6 +23,10 @@ public class FuelAssembly : MonoBehaviour
 
     #region CustomMethods
 
+    /// <summary>
+    /// Insert the fuel rods into the fuel rod assembly.
+    /// </summary>
+    /// <param name="_fuelRods">Fuel rods to be inserted into the assembly.</param>
     public void InsertFuelRods(FuelRod[,] _fuelRods)
     {
         // Set the fuel rod variable
@@ -43,6 +46,9 @@ public class FuelAssembly : MonoBehaviour
         OnFuelRodsInserted?.Invoke(fuelRodCount);
     }
 
+    /// <summary>
+    /// Remove the fuel rods from the assembly, clearing them.
+    /// </summary>
     public void DestroyFuelRods()
     {
         // List of gameobjects to destroy
@@ -98,7 +104,7 @@ public class FuelAssembly : MonoBehaviour
     /// <summary>
     /// Returns a 1 dimensional array filled with the fuel rod components.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>1D array filled with the fuel rod components.</returns>
     public FuelRod[] FlattenedFuelRods()
     {
         // Create an array to hold the fuel rod elements

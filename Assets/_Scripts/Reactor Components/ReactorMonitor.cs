@@ -1,8 +1,7 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// This class monitors and controls reactor components.
@@ -217,6 +216,9 @@ public class ReactorMonitor : MonoBehaviour
 
     #region MonitorMethods
 
+    /// <summary>
+    /// Reset the state of the reactor monitor.
+    /// </summary>
     private void ResetMonitor()
     {
         // Check if the fuel rods are null
@@ -243,6 +245,10 @@ public class ReactorMonitor : MonoBehaviour
         percentFuelReactive = 0f;
     }
 
+    /// <summary>
+    /// Initialize the monitor statistics.
+    /// </summary>
+    /// <param name="_fuelRodCount">Number of fuel rods present within the reactor core.</param>
     private void InitializeStatistics(int _fuelRodCount)
     {
         // Initialize the fuel rod variables and statistics
@@ -267,6 +273,9 @@ public class ReactorMonitor : MonoBehaviour
         UpdateStatistics();
     }
 
+    /// <summary>
+    /// Initialize the count of fuel rods within the reactor core.
+    /// </summary>
     private void InitializeFuelRodCounts()
     {
         // Iterate through each row
@@ -295,6 +304,9 @@ public class ReactorMonitor : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Reset the count of fuel rods within the reactor core.
+    /// </summary>
     private void ResetFuelRodCounts()
     {
         // Reset the fuel rod counts to zero
@@ -305,6 +317,12 @@ public class ReactorMonitor : MonoBehaviour
         reactiveFuelRods = 0;
     }
 
+    /// <summary>
+    /// Update the counts of different fuel rod types.
+    /// </summary>
+    /// <param name="_isFissile">Fuel rods currently fissile.</param>
+    /// <param name="_isXenon">Fuel rods currently saturated with xenon.</param>
+    /// <param name="_isReactive">Fuel rods that are reactive.</param>
     private void UpdateFuelRodCounts(bool _isFissile, bool _isXenon, bool _isReactive)
     {
         // Check for the fissile propery (and reactivity)
@@ -342,6 +360,9 @@ public class ReactorMonitor : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Update the reactor monitor statistics.
+    /// </summary>
     private void UpdateStatistics()
     {
         // Recalculate the percent statistics
@@ -367,18 +388,27 @@ public class ReactorMonitor : MonoBehaviour
         averageWaterTempC = Mathf.Round((((averageWaterTempF - 32.0f) * 5.0f / 9.0f) * 10f) / 10f);
     }
 
+    /// <summary>
+    /// Calculate the total power of the reactor.
+    /// </summary>
     private void CalculatePower()
     {
         // Count all objects of type neutron that are active in the scene
         currentPower = FindObjectsOfType<Neutron>(false).Length;
     }
 
+    /// <summary>
+    /// Initialize the UI of the reactor monitor.
+    /// </summary>
     private void InitializeUI()
     {
         // Initialize the values of the target power field
         targetPowerLabel.text = targetPower.ToString();
     }
 
+    /// <summary>
+    /// Update the UI of the reactor monitor.
+    /// </summary>
     private void UpdateUI()
     {
         // Set the text for the actual, actual % power fields
@@ -405,6 +435,9 @@ public class ReactorMonitor : MonoBehaviour
 
     #region TimerMethods
 
+    /// <summary>
+    /// Start the update timer.
+    /// </summary>
     private void StartUpdateTimer()
     {
         // Mark the start of the timer
@@ -423,6 +456,9 @@ public class ReactorMonitor : MonoBehaviour
         StartCoroutine(UpdateTimer());
     }
 
+    /// <summary>
+    /// Update the timer.
+    /// </summary>
     private IEnumerator UpdateTimer()
     {
         // Mark the start time

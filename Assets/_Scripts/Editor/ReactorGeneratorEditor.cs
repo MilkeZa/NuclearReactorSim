@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 /// <summary>
@@ -58,7 +54,7 @@ public class ReactorGeneratorEditor : Editor
 
     #endregion
 
-    #region Button Events
+    #region ButtonEvents
 
     /// <summary>
     /// Callback for when the save settings button is pressed.

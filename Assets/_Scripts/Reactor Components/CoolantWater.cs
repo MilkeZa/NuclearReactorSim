@@ -9,15 +9,15 @@ public class CoolantWater : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Color displayed when water is cool")]
-    private Color coolColor = new Color(176f / 255f, 237f / 255f, 255f / 255f, 1f);
+    private Color coolColor = new Color(176f / 255f, 237f / 255f, 255f / 255f, 1f); // Sprite color when water is "cool"
 
     [SerializeField]
     [Tooltip("Color displayed when water is hot")]
-    private Color hotColor = new Color(255f / 255f, 76f / 255f, 76f / 255f, 1f);
+    private Color hotColor = new Color(255f / 255f, 76f / 255f, 76f / 255f, 1f);    // Sprite color when water is "hot"
 
-    private Color evaporationColor;
+    private Color evaporationColor;                                                 // Sprite color when water is "evaporated"
 
-    public bool isLightWater { get; private set; } = true;
+    public bool isLightWater { get; private set; } = true;                          // Lightwater (true) evaporates quicker than heavier water (false).
 
     [SerializeField]
     [Tooltip("Temperature of water that has absorbed no neutrons")]
@@ -115,6 +115,9 @@ public class CoolantWater : MonoBehaviour
 
     #region InitializationMethods
 
+    /// <summary>
+    /// Initialize the state of the coolant water.
+    /// </summary>
     private void InitializeWater()
     {
         // Calculate and assign the hot and evaporation temperatures
@@ -138,6 +141,11 @@ public class CoolantWater : MonoBehaviour
 
     #region TemperatureMethods
 
+    /// <summary>
+    /// Convert a temperature to color.
+    /// </summary>
+    /// <param name="_temperature">Temperature of the water.</param>
+    /// <returns>Color result of the input temperature.</returns>
     private Color TemperatureToColor(float _temperature)
     {
         float _tempFactor;  // Value in the range [0, 1] used to interpolate the colors
@@ -185,6 +193,10 @@ public class CoolantWater : MonoBehaviour
         return _color;
     }
 
+    /// <summary>
+    /// Update the temperature of the water.
+    /// </summary>
+    /// <param name="_temperatureDelta">Difference in temperature to apply to the water.</param>
     private void ChangeTemperature(float _temperatureDelta)
     {
         // Apply the change in temperature to the current temperature, clamping to the range [coolTemperature, maxTemperature]
@@ -200,6 +212,9 @@ public class CoolantWater : MonoBehaviour
         waterSprite.color = currentColor;
     }
 
+    /// <summary>
+    /// Lower the temperature of the water.
+    /// </summary>
     public void CoolWater()
     {
         // Calculate the negative change in temperature as water is cooling down
@@ -209,6 +224,10 @@ public class CoolantWater : MonoBehaviour
         ChangeTemperature(_temperatureDelta);
     }
 
+    /// <summary>
+    /// Raise the temperature of the water.
+    /// </summary>
+    /// <param name="_heatAmount">Quantity with which the temperature should be raised.</param>
     public void HeatWater(float _heatAmount)
     {
         // Calculate the positive change in temperature
@@ -218,12 +237,19 @@ public class CoolantWater : MonoBehaviour
         ChangeTemperature(_temperatureDelta);
     }
 
+    /// <summary>
+    /// Set the state of the pumps.
+    /// </summary>
+    /// <param name="_state">Pumps are enabled (true), or disable (false), controlling if water can be cooled or not.</param>
     public void SetPumpState(bool _state)
     {
         // Enable or disable the water to cool depending on state
         enableCooling = _state;
     }
 
+    /// <summary>
+    /// Trigger an evaporation with the water, disabling its ability to moderate the reaction.
+    /// </summary>
     private void EvaporateWater()
     {
         // Current temperature has exceeded the evaporation point. Set the has evaporated and has condensed flags
@@ -234,6 +260,9 @@ public class CoolantWater : MonoBehaviour
         waterCollider.enabled = false;
     }
 
+    /// <summary>
+    /// Condense back into water, allowing for moderation of the reaction.
+    /// </summary>
     private void CondenseWater()
     {
         // Water has cooled enough to condense into a liquid. Set the has evaporated and has condensed flags

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 /// <summary>
 /// This class holds the structure of fuel assembly save data.
@@ -11,10 +8,10 @@ public class FuelAssemblySaveData
 {
     #region Variables
 
-    public int fuelRows;
-    public int fuelColumns;
-    public Vector2 minimumPosition;
-    public Vector2 maximumPosition;
+    public int fuelRows;            // Number of rows in the fuel assembly
+    public int fuelColumns;         // Number of columns in the fuel assembly
+    public Vector2 minimumPosition; // Minimum position in 2D space within the fuel assembly (bottom-left).
+    public Vector2 maximumPosition; // Maximum position in 2D space within the fuel assembly (top-right).
 
     #endregion
 

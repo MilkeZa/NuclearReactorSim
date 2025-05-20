@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -71,12 +69,18 @@ public class ReactorGenerator : MonoBehaviour
 
     #region FuelMethods
 
+    /// <summary>
+    /// Save the fuel assembly settings to a JSON file.
+    /// </summary>
     public void SaveFuelAssemblySettings()
     {
         // Pass the current values to the json handler to write them to persistent storage
         SaveJsonData.WriteFuelAssemblySaveData(fuelRows, fuelColumns, minimumPosition, maximumPosition);
     }
 
+    /// <summary>
+    /// Reset the fuel assembly settings in the save file.
+    /// </summary>
     public void ResetFuelAssemblySettings()
     {
         // Load the values saved in the persistent data file
@@ -89,6 +93,9 @@ public class ReactorGenerator : MonoBehaviour
         maximumPosition = _defaultFuelAssemblyData.maximumPosition;
     }
 
+    /// <summary>
+    /// Generate the fuel assembly, containing all fuel rods.
+    /// </summary>
     public void GenerateFuelAssembly()
     {
         // Verify that no fuel rods currently exist
@@ -108,6 +115,10 @@ public class ReactorGenerator : MonoBehaviour
         GenerateCoolantWater();
     }
 
+    /// <summary>
+    /// Generate the fuel rods to be put into the fuel assembly.
+    /// </summary>
+    /// <returns>2D array of fuel rods.</returns>
     private FuelRod[,] GenerateFuelRods()
     {
         // Generate the fuel rod gameobjects
@@ -142,6 +153,10 @@ public class ReactorGenerator : MonoBehaviour
         return _fuelRods;
     }
 
+    /// <summary>
+    /// Set the position of fuel rods within 3D space on screen.
+    /// </summary>
+    /// <param name="_fuelRods">2D array of fuel rods.</param>
     private void SetFuelRodPositions(FuelRod[,] _fuelRods)
     {
         /* Position Notes:
@@ -184,6 +199,9 @@ public class ReactorGenerator : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Clear the fuel rod assembly, removing it from the reactor core.
+    /// </summary>
     public void ClearFuelAssembly()
     {
         // Instruct the fuel assembly to destroy all fuel rods
@@ -196,6 +214,9 @@ public class ReactorGenerator : MonoBehaviour
 
     #region CoolantWaterMethods
 
+    /// <summary>
+    /// Generate the coolant water within the reactor core.
+    /// </summary>
     private void GenerateCoolantWater()
     {
         CoolantWater[] _waterTank = new CoolantWater[fuelAssembly.rowCount * fuelAssembly.columnCount];
@@ -227,6 +248,9 @@ public class ReactorGenerator : MonoBehaviour
         waterTank.InsertWater(_waterTank);
     }
 
+    /// <summary>
+    /// Clear the coolant water, removing it from the reactor core.
+    /// </summary>
     private void ClearCoolantWater()
     {
         foreach (CoolantWater _obj in FindObjectsOfType<CoolantWater>())

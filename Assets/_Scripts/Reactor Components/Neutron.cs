@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -13,24 +10,24 @@ public class Neutron : MonoBehaviour
     [Header("State based Travel Speed")]
     [SerializeField]
     [Tooltip("Speed of the object when in the slow state")]
-    private float slowSpeed = 1f;
+    private float slowSpeed = 1f;   // Travel speed of neutron when in a slow state
 
     [SerializeField]
     [Tooltip("Speed of the object when in the fast state")]
-    private float fastSpeed = 2f;
+    private float fastSpeed = 2f;   // Travel speed of neutron when in a fast state
 
     [Header("State based Sprite Coloring")]
     [SerializeField]
     [Tooltip("Color of the interior when in the slow state")]
-    private Color slowColor = Color.black;
+    private Color slowColor = Color.black;  // Sprite color of neutron when in a slow state
 
     [SerializeField]
     [Tooltip("Color of the interior when in the fast state")]
-    private Color fastColor = Color.white;
+    private Color fastColor = Color.white;  // Sprite color of neutron when in a fast state
 
     [SerializeField]
     [Tooltip("Sprite whose color will be updated when state is altered")]
-    private SpriteRenderer interiorSprite;
+    private SpriteRenderer interiorSprite;  // Interior sprite renderer whose color is update depending on state
 
     public bool isThermalNeutron { get; private set; }  // True when travelling too fast to cause a reaction, false, when slower than the max reaction speed
 
@@ -168,6 +165,10 @@ public class Neutron : MonoBehaviour
 
     #region StateMethods
 
+    /// <summary>
+    /// Set the state of the neutron.
+    /// </summary>
+    /// <param name="_state">Set the state of the neutron to be thermal (true) which travels fast, or not (false), which travels slow.</param>
     private void SetState(bool _state)
     {
         // Update the state bool
@@ -195,6 +196,9 @@ public class Neutron : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Reduce the speed of the neutron.
+    /// </summary>
     private void SlowNeutron()
     {
         // Calculate the loss of speed

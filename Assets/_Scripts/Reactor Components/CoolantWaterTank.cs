@@ -1,24 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class controls the behavior of the totality of coolant water within the reactor core.
+/// </summary>
 public class CoolantWaterTank : MonoBehaviour
 {
     #region Variables
 
-    public CoolantWater[] water;
+    public CoolantWater[] water;    // Array of coolant water objects
 
-    public bool enablePumps { get; private set; } = true;
-    public float minTemperature { get; private set; }
-    public float maxTemperature { get; private set; }
-    public float averageTemperature { get; private set; }
-    public float currentWaterLevel { get; private set; }
-    public float maxWaterLevel { get; private set; }
+    public bool enablePumps { get; private set; } = true;   // Enable/disable cooling across all water objects
+    public float minTemperature { get; private set; }       // Minimum water temperature present within the reactor core
+    public float maxTemperature { get; private set; }       // Maximum water temperature present within the reactor core
+    public float averageTemperature { get; private set; }   // Average water temperature across all water within the reactor core
+    public float currentWaterLevel { get; private set; }    // Current water level (non-evaporated) within the reactor core
+    public float maxWaterLevel { get; private set; }        // Maximum water level (all non-evaporated) within the reactor core
 
     #endregion
 
     #region MeasurementMethods
 
+    /// <summary>
+    /// "Pump" the water into the tank.
+    /// </summary>
+    /// <param name="_water"></param>
     public void InsertWater(CoolantWater[] _water)
     {
         // Update the water array value
@@ -28,6 +33,9 @@ public class CoolantWaterTank : MonoBehaviour
         maxWaterLevel = _water.Length;
     }
 
+    /// <summary>
+    /// "Pump" the water out of the tank.
+    /// </summary>
     public void ClearWater()
     {
         // Update the water array value and reset each attribute
@@ -40,6 +48,9 @@ public class CoolantWaterTank : MonoBehaviour
         maxWaterLevel = 0f;
     }
 
+    /// <summary>
+    /// Update the water measurements.
+    /// </summary>
     public void UpdateMeasurements()
     {
         // Check if water is present
@@ -90,12 +101,18 @@ public class CoolantWaterTank : MonoBehaviour
         currentWaterLevel = Mathf.Round(((_currentWaterLevel / maxWaterLevel) * 10f) / 10f) * 100f;
     }
 
+    /// <summary>
+    /// Enable the pumps, allowing for water to cool.
+    /// </summary>
     public void EnablePumps()
     {
         // Set the enable pumps flag
         enablePumps = true;
     }
 
+    /// <summary>
+    /// Disable the pumps, not allowing water to cool.
+    /// </summary>
     public void DisablePumps()
     {
         // Set the enable pumps flag
